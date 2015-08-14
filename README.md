@@ -35,7 +35,7 @@ The ranking data is contained in `data/judgments.xml`. Rankings look like this:
       <translation rank="5" system="NTHU"/>
     </ranking-item>
 
-Ranks with multiple systems have been collapsed if the system output was the same. The attribute `src-id` references the position of the judged sentence in a system output. The system names correspondsto the filenames in `data/original/official_submissions` which contains the original system outputs.
+Ranks with multiple systems have been collapsed if the system output was the same. The attribute `src-id` references the position of the judged sentence in a system output. The system names correspond to the filenames in `data/original/official_submissions` which contains the original system outputs.
 
 The tables presented in our paper can be generated using
 
@@ -59,6 +59,6 @@ For some of the tables to correctly be generated you will need to install R and 
 
 For TrueSkill you will also need the trueskill python module:
 
-    How did I install that?
+    sudo pip install trueskill
 
-
+Code in the `data/scripts/trueskill` folder has been adapted from Keisuke Sakaguchi's repository https://github.com/keisks/wmt-trueskill
