@@ -46,7 +46,7 @@ Since TrueSkill bootstrapping takes a couple of hours you need to invoke it sepa
 
     make -j 8 trueskill
 
-The generated files `data/EW.txt` and optionally `data/TS.txt` contain the final rankings presented in the paper.
+The generated files `data/EW.ranking.txt` and optionally `data/TS.ranking.txt` contain the final rankings presented in the paper.
 
 Requirements
 ---

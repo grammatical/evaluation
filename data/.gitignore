@@ -4,6 +4,7 @@ TS.ranking*.txt
 TS/
 accuracy/
 judges/
+include/
 judgments.xml
 pairs.ops.txt
 pairs.tup.txt
