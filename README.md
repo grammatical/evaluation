@@ -42,16 +42,16 @@ The tables presented in our paper can be generated using
     cd data
     make -j 8
 
-Since TrueSkill bootstrapping takes a couple of hours you need to invoke it separately:
+Since TrueSkill bootstrapping takes a couple of hours you need to invoke it separately (see requirements below):
 
     make -j 8 trueskill
 
-The generated files `data/EW.ranking.txt` and optionally `data/TS.ranking.txt` contain the final rankings presented in the paper.
+The generated files `data/EW.ranking.txt` and optionally `data/TS.ranking.txt` contain the final rankings presented in the paper. A couple more latex tables will be placed into `data/includes` they should contain the same numbers as reported in the paper. See `data/Makefile` for details how to run the scripts.
 
 Requirements
 ---
 
-For some of the tables to correctly be generated you will need to install R and the perl package Statistics::R, on Ubuntu you can do:
+To generate the ExpectedWins head2head table you will need to install R and the perl package Statistics::R. On Ubuntu you can do:
 
     sudo apt-get install r-base r-base-dev
     sudo perl -MCPAN -e shell
