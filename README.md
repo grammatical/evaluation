@@ -2,7 +2,7 @@ Human Evaluation of Grammatical Error Correction Systems
 ---
 
 Data and scripts for our 
-[upcoming paper](http://emjotde.github.io/publications/pdf/mjd.emnlp2015.draft.pdf) (final draft):
+[to-be-published paper](http://emjotde.github.io/publications/pdf/mjd.emnlp2015.draft.pdf) (final draft):
 
     @inproceedings{grundkiewicz_emnlp_2015,
       author = {Roman Grundkiewicz and Marcin Junczys-Dowmunt and Edward Gillian},
