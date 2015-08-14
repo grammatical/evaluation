@@ -1,0 +1,10 @@
+EW.ranking*.txt
+EW/
+TS.ranking*.txt
+TS/
+accuracy/
+judges/
+judgments.xml
+pairs.ops.txt
+pairs.tup.txt
+*.pyc
