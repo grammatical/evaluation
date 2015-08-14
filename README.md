@@ -17,7 +17,7 @@ Data and scripts for our
 Reproducing our results
 ---
 
-The ranking data is contained in `data/judgments.xml`. Ranking looks like this:
+The ranking data is contained in `data/judgments.xml`. Rankings look like this:
 
     <ranking-item doc-id="10000.0.txt-321" duration="00:00:41.916000" id="321" src-id="307" user="annotator01">
       <translation rank="4" system="CAMB"/>
