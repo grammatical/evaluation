@@ -9,7 +9,7 @@ LENGTH=$(shell perl -MPOSIX -e 'print ceil(log('$(FOLD)')/log(10)), "\n"')
 
 all: includes
 
-includes: agreement pairwisestats expected-wins trueskill correl alljudges
+includes: agreement pairwisestats expected-wins correl alljudges
 #includes: agreement pairwisestats expected-wins trueskill correl alljudges
 
 agreement: include/agreement.tex
@@ -26,6 +26,10 @@ include/correl.table.EW.tex: metrics EW.ranking.txt
 	perl scripts/latex_correl.pl > $@
 
 ################################################################################
+
+judges/EW.ranking.no%.txt: judgments.xml
+	mkdir -p judges
+	cat $^ | perl scripts/EW.pl -x annotator0$* > $@
 
 judges/EW.ranking.%.txt: judgments.xml
 	mkdir -p judges
@@ -54,12 +58,6 @@ include/EW.head2head.tex : judgments.xml
 	perl scripts/head2head.pl < $^ > $@
 
 ################################################################################
-
-exported/export.%.xml : 
-	python scripts/export_gec_results.py $* > $@
-
-judgments.xml : exported/export.conll-eval-1-1000.xml exported/export.conll-eval-1000-2000.xml
-	perl scripts/join_xml.pl --limit ${LIMIT} $^ > $@
 
 include/agreement.tex: judgments.xml
 	mkdir -p include
@@ -170,42 +168,8 @@ accuracy/TS.ranking.%: accuracy/split.TS
 
 ################################################################################
 
-accuracy.radius: accuracy/EW.accuracy.radius accuracy/TS.accuracy.radius
-
-accuracy/EW.accuracies.grid: accuracy/split.EW
-	mkdir -p accuracy/EW
-	seq -w 0 $(FOLD) | \
-	parallel -j${J} 'find accuracy/split.EW/split.EW.?? \
-	| grep -v {} | xargs cat | \
-	python scripts/wmt-trueskill/EW.py accuracy/EW/run.{}'
-	for d in `LC_ALL=C seq 0 0`; do \
-	seq -w $(FOLD) | \
-	parallel -j${J} -k "echo -ne '{}\t'$$d'\t'; cat accuracy/split.EW/split.EW.{} \
-	| python scripts/wmt-trueskill/eval/accuracy_d.py -d $$d -m $(M) accuracy/EW/run.{}_mu_sigma.json 2>/dev/null"; \
-	done | tee $@
-
-accuracy/TS.accuracies.grid: accuracy/split.TS
-	mkdir -p accuracy/TS
-	seq -w 0 $(FOLD) | \
-	parallel -j${J} 'find accuracy/split.TS/split.TS.?? \
-	| grep -v {} | xargs cat | \
-	python scripts/wmt-trueskill/TS.py -n 2 -d 0 accuracy/TS/run.{}'
-	for d in `LC_ALL=C seq 0 0`; do \
-	seq -w 0 $(FOLD) | \
-	parallel -j${J} "echo -ne '{}\t'$$d'\t'; cat accuracy/split.EW/split.EW.{}  \
-	| python scripts/wmt-trueskill/eval/accuracy_d.py -d $$d -m $(M) accuracy/TS/run.{}_mu_sigma.json 2>/dev/null"; \
-	done | tee $@
-
-accuracy/EW.accuracy.radius: accuracy/EW.accuracies.grid
-	cat $^ | sort -n | perl scripts/radius_average.pl > $@
-
-accuracy/TS.accuracy.radius: accuracy/TS.accuracies.grid
-	cat $^ | sort -n | perl scripts/radius_average.pl > $@
-
-################################################################################
-
 clean:
-	rm -rf judgments.xml pairs.ops.txt pairs.tup.txt \
+	rm -rf pairs.ops.txt pairs.tup.txt \
 	EW.ranking.txt EW_cluster.pdf EW EW.ranking.*.txt \
 	TS.ranking.txt TS_cluster.pdf TS \
 	accuracy judges include
