@@ -48,6 +48,10 @@ Since TrueSkill bootstrapping takes a couple of hours you need to invoke it sepa
 
 The generated files `data/EW.ranking.txt` and optionally `data/TS.ranking.txt` contain the final rankings presented in the paper. A couple more latex tables will be placed into `data/includes` they should contain the same numbers as reported in the paper. See `data/Makefile` for details how to run the scripts.
 
+To compare ExpectedWins and TrueSkill ranking accuracy (may take ages due to running 100 folds with 100 rankings each for both ranking methods) use:
+
+    make accuracy.bootstrap
+
 Requirements
 ---
 
