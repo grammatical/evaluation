@@ -2,17 +2,19 @@ Human Evaluation of Grammatical Error Correction Systems
 ---
 
 Data and scripts for our 
-[to-be-published paper](http://emjotde.github.io/publications/pdf/mjd.emnlp2015.draft.pdf) (final draft):
+[EMNLP paper](http://aclweb.org/anthology/D15-1052):
 
-    @inproceedings{grundkiewicz_emnlp_2015,
-      author = {Roman Grundkiewicz and Marcin Junczys-Dowmunt and Edward Gillian},
-      title = {Human Evaluation of Grammatical Error Correction Systems},
-      booktitle = {Proceedings of the Conference on Empirical Methods in Natural Language Processing},
-      publisher = {Association for Computational Linguistics},
-      note = {Accepted for publication},
-      year = {2015},
-      url = {http://emjotde.github.io/publications/pdf/mjd.emnlp2015.draft.pdf},
-    }
+  @inproceedings{grundkiewicz-junczysdowmunt-gillian:2015:EMNLP,
+    author = {Grundkiewicz, Roman  and  Junczys-Dowmunt, Marcin  and  Gillian, Edward},
+    title = {Human Evaluation of Grammatical Error Correction Systems},
+    booktitle = {Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing},
+    month = {September},
+    year = {2015},
+    address = {Lisbon, Portugal},
+    publisher = {Association for Computational Linguistics},
+    pages = {461--470},
+    url = {http://aclweb.org/anthology/D15-1052},
+  }
 
 Reproducing our results
 ---
