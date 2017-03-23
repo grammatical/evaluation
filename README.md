@@ -1,7 +1,7 @@
 Human Evaluation of Grammatical Error Correction Systems
 ---
 
-Data and scripts for our 
+Data and scripts for our
 [EMNLP 2015 paper](http://aclweb.org/anthology/D15-1052):
 
     @inproceedings{grundkiewicz-junczysdowmunt-gillian:2015:EMNLP,
@@ -28,7 +28,7 @@ The ranking data is contained in `data/judgments.xml`. Rankings look like this:
       <translation rank="3" system="UMC"/>
       <translation rank="5" system="AMU CUUI IITB INPUT IPN UFC"/>
     </ranking-item>
-  
+
     <ranking-item doc-id="10000.0.txt-324" duration="00:00:34.165000" id="324" src-id="98" user="annotator01">
       <translation rank="2" system="CAMB"/>
       <translation rank="5" system="POST"/>
@@ -68,3 +68,10 @@ For TrueSkill you will also need the trueskill python module:
     sudo pip install trueskill
 
 Code in the `data/scripts/trueskill` folder has been adapted from Keisuke Sakaguchi's repository https://github.com/keisks/wmt-trueskill
+
+
+Acknowledgments
+---------------
+
+This project was partially funded by the Polish National Science Centre (Grant
+No. 2014/15/N/ST6/02330).
